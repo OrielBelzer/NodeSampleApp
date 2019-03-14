@@ -1,0 +1,22 @@
+version: '1.1'
+stages:
+  - build
+  - security scans
+  - stages 
+  - production
+steps:
+  BuildMicroServices:
+    type: parallel
+    stage: build
+    steps:
+      BuildingNodeJSApp:
+        title: Building Node JS App Image
+        type: build
+        image_name: orielbelzer/nodesampleapp
+        working_directory: ./
+        tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+        dockerfile: Dockerfile
+      BuildingWorkerImage:
+        title: Building Worker Image
+        type: build
+        
