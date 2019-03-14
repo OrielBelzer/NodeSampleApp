@@ -16,7 +16,20 @@ steps:
         working_directory: ./
         tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
         dockerfile: Dockerfile
-      BuildingWorkerImage:
-        title: Building Worker Image
+      BuildinguserAPIImage:
+        title: Building User API Image
         type: build
+        image_name: orielbelzer/microserviceappexample_usersapi
+        working_directory: ./
+        tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+        dockerfile: Dockerfile
+      BuildingFronEndImage:
+        title: Building Front End Image
+        type: build
+        image_name: orielbelzer/microserviceappexample_frontend
+        working_directory: ./
+        tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+        dockerfile: Dockerfile
+      
+      
         
